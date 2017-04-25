@@ -5,7 +5,6 @@ import java.awt.*;
  */
 public class Tetromino {
     public static
-    public static final char[][] I = {{'$','$','$',$}}
 
 
 }
