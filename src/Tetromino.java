@@ -1,12 +1,11 @@
+import java.awt.*;
+
 /**
  * Created by David on 4/25/2017.
  */
-public abstract class Tetromino {
-    int maxRow;
-    int maxCol;
+public class Tetromino {
+    public static
+    public static final char[][] I = {{'$','$','$',$}}
 
-    public Tetromino(int r, int c) {
-        maxRow = r;
-        maxCol = c;
-    }
+
 }
