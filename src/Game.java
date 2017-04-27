@@ -62,4 +62,13 @@ public class Game {
         for (char[] d : c)
             System.out.println(Arrays.toString((d)));
     }
+
+    static char[][] copy(char[][] orig) {
+        char[][] ret = new char[orig.length][orig[0].length];
+        for (int i = 0; i < orig.length; i++) {
+            ret[i] = orig[i].clone();
+        }
+        return ret;
+    }
+
 }
