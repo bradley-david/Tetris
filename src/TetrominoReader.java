@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 /**
- * Class that reads tetrominos out of gameSetup.csv
+ * Class that reads Tetrominoss out of gameSetup.csv
  */
 
 public class TetrominoReader {
@@ -22,7 +22,7 @@ public class TetrominoReader {
         lines = Integer.parseInt(line.split(",")[1]);
     }
 
-    //initialize all reference arrays in Tetromino.java
+    //initialize all reference arrays in Tetrominos.java
     public void read() {
         for (int line = 0; line < lines; line++) {
             String[] ln = sc.nextLine().split(",");
@@ -40,35 +40,42 @@ public class TetrominoReader {
             }
             switch (ln[0]) {
                 case "I":
-                    Tetromino.I = tet;
+                    Tetrominos.I = tet;
                     break;
                 case "O":
-                    Tetromino.O = tet;
+                    Tetrominos.O = tet;
                     break;
                 case "T":
-                    Tetromino.T = tet;
+                    Tetrominos.T = tet;
                     break;
                 case "S":
-                    Tetromino.S = tet;
+                    Tetrominos.S = tet;
                     break;
                 case "Z":
-                    Tetromino.Z = tet;
+                    Tetrominos.Z = tet;
                     break;
                 case "J":
-                    Tetromino.J = tet;
+                    Tetrominos.J = tet;
                     break;
                 case "L":
-                    Tetromino.L = tet;
+                    Tetrominos.L = tet;
                     break;
             }
         }
-        Tetromino.allTetrominos.add(Tetromino.I);
-        Tetromino.allTetrominos.add(Tetromino.O);
-        Tetromino.allTetrominos.add(Tetromino.T);
-        Tetromino.allTetrominos.add(Tetromino.S);
-        Tetromino.allTetrominos.add(Tetromino.Z);
-        Tetromino.allTetrominos.add(Tetromino.L);
-        Tetromino.allTetrominos.add(Tetromino.J);
+        Tetrominos.allTetrominos.add(Tetrominos.I);
+        Tetrominos.stringToCharArray.put("I", Tetrominos.I);
+        Tetrominos.allTetrominos.add(Tetrominos.O);
+        Tetrominos.stringToCharArray.put("O", Tetrominos.O);
+        Tetrominos.allTetrominos.add(Tetrominos.T);
+        Tetrominos.stringToCharArray.put("T", Tetrominos.T);
+        Tetrominos.allTetrominos.add(Tetrominos.S);
+        Tetrominos.stringToCharArray.put("S", Tetrominos.S);
+        Tetrominos.allTetrominos.add(Tetrominos.Z);
+        Tetrominos.stringToCharArray.put("Z", Tetrominos.Z);
+        Tetrominos.allTetrominos.add(Tetrominos.L);
+        Tetrominos.stringToCharArray.put("L", Tetrominos.L);
+        Tetrominos.allTetrominos.add(Tetrominos.J);
+        Tetrominos.stringToCharArray.put("J",Tetrominos.J);
 
     }
 

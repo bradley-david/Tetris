@@ -1,4 +1,6 @@
+import java.io.File;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Created by s641173 on 4/25/2017.
@@ -6,9 +8,11 @@ import java.util.Arrays;
 public class Game {
     static char[][] board = new char[22][10];
 
-    public static void run() {
+    public static void run() throws Exception {
+        Scanner csvScanner = new Scanner(new File("gameSetup.csv"));
+        TetrominoReader tReader = new TetrominoReader(csvScanner);
+        tReader.read();
         fillBoard();
-
     }
 
     static void fillBoard() {
