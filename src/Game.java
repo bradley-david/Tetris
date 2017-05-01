@@ -13,6 +13,8 @@ public class Game {
         TetrominoReader tReader = new TetrominoReader(csvScanner);
         tReader.read();
         fillBoard();
+        print(board);
+        GUI gui = new GUI(board);
     }
 
     static void fillBoard() {
