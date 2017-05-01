@@ -13,8 +13,8 @@ public class Game {
         TetrominoReader tReader = new TetrominoReader(csvScanner);
         tReader.read();
         fillBoard();
-        print(board);
-        GUI gui = new GUI(board);
+        //GUI gui = new GUI(board);
+
     }
 
     static void fillBoard() {
@@ -65,12 +65,46 @@ public class Game {
             System.out.println(Arrays.toString((d)));
     }
 
-    static char[][] copy(char[][] orig) {
-        char[][] ret = new char[orig.length][orig[0].length];
-        for (int i = 0; i < orig.length; i++) {
-            ret[i] = orig[i].clone();
+    /*returns false if it can't drop, returns true if it can*/
+    static boolean drop(int row, int col, char[][] piece, boolean place) {
+        for (int r = 0; r < piece.length; r++) {
+            for (int c = 0; c < piece[r].length; c++) {
+                if (piece[r][c] != '0') {
+                    if (row + r >= 0 && row + r < board.length && col + c >= 0 && col + c < board[row].length) {
+                        if (piece[r][c] != '0' && board[row + r][col + c] != '0') {
+
+                            return false;
+                        }
+                    } else {
+                        System.out.println("here");
+                        return false;
+                    }
+                }
+            }
         }
-        return ret;
+        if (place) {
+            for (int r = 0; r < piece.length; r++) {
+                for (int c = 0; c < piece[r].length; c++) {
+                    if (piece[r][c] != '0') {
+                        board[row + r][col + c] = piece[r][c];
+                    }
+                }
+            }
+        }
+
+        return true;
+
+
     }
 
+    /* returns false if it doesn't drop, true if it does */
+    static boolean tick(int[] pos, char[][] piece) {
+        if (drop(pos[0] + 1, pos[1], piece, false)) {
+            pos[0] += 1;
+            return false;
+        } else {
+            drop(pos[0], pos[1], piece, true);
+            return true;
+        }
+    }
 }
