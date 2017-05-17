@@ -4,10 +4,10 @@
 
 
 public class Block {
-    char[][] block;
+    char[][] piece;
     int[] pos;
     public Block(int[] p, char[][] b) {
-        block = b;
+        piece = b;
         pos = p;
     }
 }
