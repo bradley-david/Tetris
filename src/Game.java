@@ -194,6 +194,9 @@ public class Game {
         moveRight(currentBlock);
     }
 
+    static void tickGUI() {
+        tick(currentBlock);
+    }
 
 
 
