@@ -18,6 +18,14 @@ public class Game {
         board[15][3] = 'r';
         board[15][4] = 'r';
         GUI gui = new GUI(board);
+
+        Thread.sleep(3000);
+
+        board[10][5] = 'b';
+        board[10][6] = 'b';
+        board[15][3] = 'g';
+        board[15][4] = 'g';
+        gui.update(board);
     }
 
     static void fillBoard() {

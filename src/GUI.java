@@ -7,17 +7,18 @@ public class GUI extends JFrame {
     private ImageIcon[][] icons = new ImageIcon[22][10];
     private JPanel panel = new JPanel();
 
+
     public GUI(char[][] b) {
         board = b;
         setSize(200, 400);
  //       setResizable(false);
         panel.setLayout(new GridLayout(20, 10));
-
         add(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         placePieces();
         repaint();
+        validate();
     }
 
     public void placePieces() {
@@ -32,14 +33,19 @@ public class GUI extends JFrame {
 
     @Override
     public void repaint() {
-
+        super.repaint();
     }
 
-    private static class Square extends JButton {
-
-    }
 
     public char[][] getBoard() {
         return board;
     }
+
+    public void update(char[][] newBoard) {
+        board = newBoard;
+        placePieces();
+        repaint();
+        validate();
+    }
+
 }
