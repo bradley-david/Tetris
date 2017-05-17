@@ -7,6 +7,7 @@ import java.util.*;
 public class Game {
     static char[][] board = new char[22][10];
     static ArrayList<Block> newPiece = new ArrayList();
+    static Block currentBlock;
 
     public static void run() throws Exception {
         Scanner csvScanner = new Scanner(new File("gameSetup.csv"));
@@ -68,6 +69,22 @@ public class Game {
         if (canPlace(pos[0], pos[1], rotated))
             b.piece = rotated;
 
+    }
+
+    static void moveLeft(Block b) {
+        int[] pos = b.pos;
+        char[][] piece = b.piece;
+
+        if (canPlace(pos[0], pos[1] - 1, piece))
+            pos[1]--;
+    }
+
+    static void moveRight(Block b) {
+        int[] pos = b.pos;
+        char[][] piece = b.piece;
+
+        if (canPlace(pos[0], pos[1] + 1, piece))
+            pos[1]++;
     }
 
     /*
@@ -151,6 +168,33 @@ public class Game {
         Collections.shuffle(news);
         newPiece.addAll(news);
     }
+
+    static void pressSpace(){
+        hardDrop(currentBlock);
+    }
+
+    static void PressUp(){
+        rotateCounterClockwise(currentBlock);
+    }
+
+    static void PressZ() {
+        rotateClockwise(currentBlock);
+    }
+
+    static void holdDown() {
+        tick(currentBlock);
+    }
+
+    static void holdLeft() {
+        moveLeft(currentBlock);
+
+    }
+
+    static void holdRight() {
+        moveRight(currentBlock);
+    }
+
+
 
 
 }
