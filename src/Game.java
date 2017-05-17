@@ -8,6 +8,7 @@ public class Game {
     static char[][] board = new char[22][10];
     static ArrayList<Block> newPiece = new ArrayList();
     static Block currentBlock;
+    //test
 
     public static void run() throws Exception {
         Scanner csvScanner = new Scanner(new File("gameSetup.csv"));
