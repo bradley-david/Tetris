@@ -10,4 +10,8 @@ public class Block {
         piece = b;
         pos = p;
     }
+
+    public String toString() {
+        return "Row: " + pos[0] + ", Col: ";
+    }
 }
